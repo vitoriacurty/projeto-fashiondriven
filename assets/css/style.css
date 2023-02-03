@@ -155,3 +155,11 @@ footer {
 .list-p {
   font-weight: bold;
 }
+
+.blue-border {
+  border: 3px solid #404EED;
+}
+
+.color-button{
+  background-color: #404EED !important;
+}
