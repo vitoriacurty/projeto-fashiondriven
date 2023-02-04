@@ -19,15 +19,15 @@
             <p class="select">Escolha o modelo</p>
             <ul>
               <li>
-                <img src="./assets/img/tshirt.png" alt="" onclick="getModelo(this)"/>
+                <img id="t-shirt" src="./assets/img/tshirt.png" alt="" onclick="getModelo(this)"/>
                 <p>T-shirt</p>
               </li>
               <li>
-                <img src="./assets/img/Camiseta.png" alt="" onclick="getModelo(this)"/>
+                <img id="top-tank" src="./assets/img/Camiseta.png" alt="" onclick="getModelo(this)"/>
                 <p>Camiseta</p>
               </li>
               <li>
-                <img src="./assets/img/Mangalonga.png" alt="" onclick="getModelo(this)"/>
+                <img id="long" src="./assets/img/Mangalonga.png" alt="" onclick="getModelo(this)"/>
                 <p>Manga longa</p>
               </li>
             </ul>
@@ -36,15 +36,15 @@
             <p class="select">Escolha a gola</p>
             <ul>
               <li>
-                <img src="./assets/img/GolaV.png" alt="" onclick="getGola(this)"/>
+                <img id="v-neck" src="./assets/img/GolaV.png" alt="" onclick="getGola(this)"/>
                 <p>Gola V</p>
               </li>
               <li>
-                <img src="./assets/img/GolaRedonda.png" alt="" onclick="getGola(this)"/>
+                <img id="round" src="./assets/img/GolaRedonda.png" alt="" onclick="getGola(this)"/>
                 <p>Gola redonda</p>
               </li>
               <li>
-                <img src="./assets/img/GolaPolo.png" alt="" onclick="getGola(this)"/>
+                <img id="polo" src="./assets/img/GolaPolo.png" alt="" onclick="getGola(this)"/>
                 <p>Gola polo</p>
               </li>
             </ul>
@@ -53,23 +53,23 @@
             <p class="select">Escolha o tecido</p>
             <ul>
               <li>
-                <img src="./assets/img/Seda.png" alt="" onclick="getTecido(this)"/>
+                <img id="silk" src="./assets/img/Seda.png" alt="" onclick="getTecido(this)"/>
                 <p>Seda</p>
               </li>
               <li>
-                <img src="./assets/img/Algodão.png" alt="" onclick="getTecido(this)"/>
+                <img id="cotton" src="./assets/img/Algodão.png" alt="" onclick="getTecido(this)"/>
                 <p>Algodão</p>
               </li>
               <li>
-                <img src="./assets/img/Poliester.png" alt="" onclick="getTecido(this)"/>
+                <img id="polyester" src="./assets/img/Poliester.png" alt="" onclick="getTecido(this)"/>
                 <p>Poliéster</p>
               </li>
             </ul>
           </div>
           <div class="container-footer">
             <p class="img-ref">Imagem de referência</p>
-            <input class="input" type="url" placeholder="Insira o link" />
-            <button type="button" disabled><p>Confirmar pedido</p></button>
+            <input id="input" type="url" placeholder="Insira o link"/>
+            <button type="button" disabled onclick="confirmOrder()"><p>Confirmar pedido</p></button>
           </div>
         </div>
       </div>
@@ -104,6 +104,7 @@
         </div>
       </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

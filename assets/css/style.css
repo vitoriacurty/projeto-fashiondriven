@@ -162,4 +162,5 @@ footer {
 
 .color-button{
   background-color: #404EED !important;
+  cursor: pointer;
 }
