@@ -13,6 +13,9 @@ object.owner = nome
 object.author = nome
 object.image = input
 
+creationsList = []
+let shirt = null;
+
 // const input = document.getElementById('input').value
 
 
@@ -81,27 +84,82 @@ function confirmOrder() {
 /////////////////////////////////////////
 
 function sendOrder() {
-  const promise = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', object);
-  promise.then(success);
-  promise.catch(error);
+  const promise = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', object)
+  promise.then(success)
+  promise.catch(error)
   console.log(promise)
 }
 
 ////////////////////////////////////////
 
 function success(response) {
-  alert("Sua encomenda foi efetuada com sucesso!");
-  console.log(response.status);
-  console.log(response);
+  alert("Sua encomenda foi efetuada com sucesso!")
+  console.log(response.status)
+  console.log(response)
   console.log(object)
 }
 
 function error(erro) {
-  alert("Ops, não conseguimos processar sua encomenda");
-  console.log(erro.response.status);
-  console.log(erro.response.data);
+  alert("Ops, não conseguimos processar sua encomenda")
+  console.log(erro.response.status)
+  console.log(erro.response.data)
 }
 
+////////////////////////////////////////
 
+function showCreation () {
+   
+  const order = document.querySelector('.list')
 
+  for (let i = 0; i < 10 ; i++){
 
+      object = list[i]
+      
+      let template = `
+                  <div id="${i}" onclick="pedidoCriado(this)" class="list">
+                      <img src=${object.image}>
+                      <div class="nome"><p>Criador:</p> <span> ${object.owner}</span> </div>
+                  </div>
+  `;
+
+      order.innerHTML = order.innerHTML + template;
+  }
+}
+
+///////////////////////////////////////////
+
+function getCreations(){
+  const promise = axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts')
+  promise.then(successCreation)
+  promise.catch(errorCreation)
+}
+
+const order = document.querySelector('.list')
+
+function successCreation(response) {
+  for (let i = 0; i < 10; i++){
+    order.innerHTML += `
+    <div class="list" onclick="createdOrder(this)">
+    <img class="img-list" src="${response.data[i].image}">
+    <p> Criador: ${response.data[i].owner}</p>
+    </div>
+    `
+  }
+  successCreation()
+}
+
+function errorCreation(){
+  alert("Ops, não foi possível listar os últimos pedidos");
+  console.log(errorCreation);
+}
+
+//////////////////
+
+function confirmOrder (){
+
+  const resp = confirm ('Deseja fazer um pedido desse modelo?')
+  if(resp === true){
+  //   condition
+  }
+}
+getCreations()
